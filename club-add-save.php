@@ -13,11 +13,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 $iClub = $_POST['iClub'];
+$iStandings = $_POST['iStandings'];
 
-$sql = "insert into Teams (Club) value (?)";
+$sql = "insert into Teams (Club, Standings) value (?,?)";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $iClub);
+    $stmt->bind_param("si", $iClub, $iStandings);
     $stmt->execute();
 ?>
     
