@@ -58,5 +58,6 @@ $conn->close();
 ?>
   </tbody>
     </table>
+    <a href="club-add.php" class="btn btn-primary">Add New</a>
 
 <?php include 'footers.php';?>
