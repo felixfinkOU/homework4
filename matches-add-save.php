@@ -31,6 +31,5 @@ $sql = "insert into Matches (HomeTeam, AwayTeam, HomeTeamGoals, AwayTeamGoals, M
 </div>
 
     <a href="matches.php" class="btn btn-primary">Go back</a>
-    <a href="matches-add.php" class="btn btn-primary">Add New</a>
     
 <?php include 'footers.php';?>
