@@ -16,7 +16,7 @@ $iFirstName = $_POST['iFirstName'];
 $iAwayTeam = $_POST['iLastName'];
 $iClub = $_POST['iClub'];
 
-$sql = "insert into Matches (FirstName, LastName, Club) value (?,?,?)";
+$sql = "insert into SoccerManagers (FirstName, LastName, Club) value (?,?,?)";
 //echo $sql;
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sss", $iFirstName, $iLastName, $iClub);
