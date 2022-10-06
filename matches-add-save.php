@@ -29,9 +29,8 @@ $sql = "insert into Matches (HomeTeam, AwayTeam, HomeTeamGoals, AwayTeamGoals, M
 <div class="alert alert-success" role="alert">
   New match added.
 </div>
-<div>
+
     <a href="matches.php" class="btn btn-primary">Go back</a>
     <a href="matches-add.php" class="btn btn-primary">Add New</a>
-</div>
     
 <?php include 'footers.php';?>
