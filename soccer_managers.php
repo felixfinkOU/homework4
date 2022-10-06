@@ -49,5 +49,6 @@ $conn->close();
     </table>
 
 <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
+<a href="soccer_manager-add.php" class="btn btn-primary">Add New</a>
 
 <?php include 'footer.php';?>
