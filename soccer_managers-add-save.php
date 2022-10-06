@@ -28,6 +28,6 @@ $sql = "insert into Matches (FirstName, LastName, Club) value (?,?,?)";
   New manager added.
 </div>
 
-    <a href="soccer_manager.php" class="btn btn-primary">Go back</a>
+    <a href="soccer_managers.php" class="btn btn-primary">Go back</a>
     
 <?php include 'footers.php';?>
