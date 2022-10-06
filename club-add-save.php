@@ -12,7 +12,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$iName = $_POST['iName'];
+$iClub = $_POST['iClub'];
 
 $sql = "insert into Teams (Club) value (?)";
 //echo $sql;
