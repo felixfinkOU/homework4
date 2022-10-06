@@ -13,7 +13,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 $iFirstName = $_POST['iFirstName'];
-$iAwayTeam = $_POST['iLastName'];
+$iLastName = $_POST['iLastName'];
 $iClub = $_POST['iClub'];
 
 $sql = "insert into SoccerManagers (FirstName, LastName, Club) value (?,?,?)";
