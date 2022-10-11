@@ -61,4 +61,4 @@ $conn->close();
     <a href="club-add.php" class="btn btn-primary">Add New</a>
     <a href="club-edit.php" class="btn btn-primary">Edit Club</a>
 
-<?php include 'footers.php';?>
+<?php include 'footer.php';?>
