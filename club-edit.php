@@ -27,7 +27,8 @@ if ($result->num_rows > 0) {
 <form method="post" action="club-edit-save.php">
   <div class="mb-3">
     <label for="Standings" class="form-label">Club Standings</label>
-    <input type="text" class="form-control" id="Standings" aria-describedby="standingsHelp" name="iStandings">
+    <input type="text" class="form-control" id="Standings" aria-describedby="standingsHelp" 
+        name="iStandings" value="<?=$row['Standings']?>">
     <div id="standingsHelp" class="form-text">Enter the Club's current standing in the league.</div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
