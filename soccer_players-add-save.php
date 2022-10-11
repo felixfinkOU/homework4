@@ -15,19 +15,22 @@ if ($conn->connect_error) {
 $iFirstName = $_POST['iFirstName'];
 $iLastName = $_POST['iLastName'];
 $iClub = $_POST['iClub'];
+$iPosition = $_POST['iPosition'];
+$iNationality = $_POST['iNationality'];
 
-$sql = "insert into SoccerManagers (FirstName, LastName, Club) value (?,?,?)";
+
+$sql = "insert into SoccerPlayers (FirstName, LastName, Club, Position, Nationality) value (?,?,?,?,?)";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $iFirstName, $iLastName, $iClub);
+    $stmt->bind_param("sssss", $iFirstName, $iLastName, $iClub, $iPosition, $iNationality);
     $stmt->execute();
 ?>
     
-    <h1>Add Manager</h1>
+    <h1>Add Player</h1>
 <div class="alert alert-success" role="alert">
-  New manager added.
+  New player added.
 </div>
 
-    <a href="soccer_managers.php" class="btn btn-primary">Go back</a>
+    <a href="soccer_players.php" class="btn btn-primary">Go back</a>
     
 <?php include 'footer.php';?>

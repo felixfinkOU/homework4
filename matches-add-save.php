@@ -32,4 +32,4 @@ $sql = "insert into Matches (HomeTeam, AwayTeam, HomeTeamGoals, AwayTeamGoals, M
 
     <a href="matches.php" class="btn btn-primary">Go back</a>
     
-<?php include 'footers.php';?>
+<?php include 'footer.php';?>
