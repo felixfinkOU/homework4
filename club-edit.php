@@ -31,6 +31,7 @@ if ($result->num_rows > 0) {
         name="iStandings" value="<?=$row['Standings']?>">
     <div id="standingsHelp" class="form-text">Enter the Club's current standing in the league.</div>
   </div>
+  <input type="hidden" name="iClub" value="<?=$row['Club']?>">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <?php
