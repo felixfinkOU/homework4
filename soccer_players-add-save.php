@@ -19,7 +19,7 @@ $iPosition = $_POST['iPosition'];
 $iNationality = $_POST['iNationality'];
 
 
-$sql = "insert into SoccerPlayers (FirstName, LastName, Club, Position, Nationality) value (?,?,?,?,?)";
+$sql = "insert into SoccerPlayer (FirstName, LastName, Club, Position, Nationality) value (?,?,?,?,?)";
 //echo $sql;
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssss", $iFirstName, $iLastName, $iClub, $iPosition, $iNationality);
