@@ -12,20 +12,20 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$iClub = $_POST['iClub'];
 $iStandings = $_POST['iStandings'];
 
-$sql = "insert into Teams (Club, Standings) value (?,?)";
+$sql = "update Teams set Standings=? where Club=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $iClub, $iStandings);
+    $stmt->bind_param("is", $iStandings, $_POST['iClub']);
     $stmt->execute();
 ?>
     
-    <h1>Add Club</h1>
+    <h1>Edit Club</h1>
 <div class="alert alert-success" role="alert">
-  New club added.
+  Club edited.
 </div>
     <a href="index.php" class="btn btn-primary">Go back</a>
-    
-<?php include 'footer.php';?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>

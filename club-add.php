@@ -15,4 +15,4 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<?php include 'footers.php';?>
+<?php include 'footer.php';?>
