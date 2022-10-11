@@ -48,6 +48,12 @@ if ($result->num_rows > 0) {
   <tr>
     <td><a href="matches.php?Team=<?=$row["Club"]?>"><?=$row["Club"]?></a></td>
     <td><?=$row["Standings"]?></td>
+    <td>
+      <form method="post" action="club-edit.php">
+        <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
+        <input type="submit" value="Edit" class="btn" />
+      </form>
+    </td>
   </tr>
 <?php
   }
@@ -59,6 +65,5 @@ $conn->close();
   </tbody>
     </table>
     <a href="club-add.php" class="btn btn-primary">Add New</a>
-    <a href="club-edit.php" class="btn btn-primary">Edit Club</a>
 
 <?php include 'footer.php';?>
