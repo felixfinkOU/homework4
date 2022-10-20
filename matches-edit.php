@@ -26,11 +26,6 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
 <form method="post" action="matches-edit-save.php">
-  <!-- <div class="mb-3">
-    <label for="HomeTeam" class="form-label">Home Team</label>
-    <input type="text" class="form-control" id="HomeTeam" aria-describedby="homeTeamHelp" name="iHomeTeam">
-    <div id="homeTeamHelp" class="form-text">Enter the Home Team.</div>
-  </div> -->
   <div class="mb-3">
     <label for="HomeTeam" class="form-label">HomeTeam</label>
     <select class="form-select" aria-label="Select HomeTeam" id="HomeTeam" name="iHomeTeam">
@@ -51,9 +46,23 @@ if ($result->num_rows > 0) {
     </select>
   </div>
   <div class="mb-3">
-    <label for="AwayTeam" class="form-label">Away Team</label>
-    <input type="text" class="form-control" id="AwayTeam" aria-describedby="awayTeamHelp" name="iAwayTeam">
-    <div id="awayTeamHelp" class="form-text">Enter the Away Team.</div>
+    <label for="AwayTeam" class="form-label">AwayTeam</label>
+    <select class="form-select" aria-label="Select AwayTeam" id="AwayTeam" name="iAwayTeam">
+    <?php
+        $awayTeamSql = "select * from Teams order by Club";
+        $awayTeamResult = $conn->query($awayTeamSql);
+        while($awayTeamRow = $awayTeamResult->fetch_assoc()) {
+          if ($awayTeamRow['Club'] == $row['Club']) {
+            $selText = " selected";
+          } else {
+            $selText = "";
+          }
+    ?>
+      <option value="<?=$awayTeamRow['Club']?>"<?=$selText?>><?=$awayTeamRow['Club']?></option>
+    <?php
+        }
+    ?>
+    </select>
   </div>
   <div class="mb-3">
     <label for="HomeTeamGoals" class="form-label">Home Team Goals</label>
