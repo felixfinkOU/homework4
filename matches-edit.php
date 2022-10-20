@@ -19,6 +19,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['iMatchID']);
 $stmt->execute();
 $result = $stmt->get_result();
+$oHomeTeam = $_POST['oHomeTeam'];
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -27,7 +28,7 @@ if ($result->num_rows > 0) {
 <form method="post" action="matches-edit-save.php">
 <div class="mb-3">
     <label for="HomeTeam" class="form-label">Home Team</label>
-    <input type="text" class="form-control" id="HomeTeam" aria-describedby="homeTeamHelp" name="iHomeTeam" default="$_POST['oHomeTeam']">
+    <input type="text" class="form-control" id="HomeTeam" aria-describedby="homeTeamHelp" name="iHomeTeam" default='$oHomeTeam'>
     <div id="homeTeamHelp" class="form-text">Enter the Home Team.</div>
   </div>
   <div class="mb-3">
