@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
     <select class="form-select" aria-label="Select HomeTeam" id="HomeTeam" name="iHomeTeam">
     <?php
         $homeTeamSql = "select * from Teams order by Club";
-        $homeTeamResult = $conn->query($instructorSql);
+        $homeTeamResult = $conn->query($homeTeamSql);
         while($homeTeamRow = $homeTeamResult->fetch_assoc()) {
           if ($homeTeamRow['Club'] == $row['Club']) {
             $selText = " selected";
