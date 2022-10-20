@@ -49,6 +49,7 @@ if ($result->num_rows > 0) {
     <td>
       <form method="post" action="matches-edit.php">
         <input type="hidden" name="iMatchID" value="<?=$row["MatchID"]?>" />
+        <input type="hidden" name="oHomeTeam" value="<?=$row["HomeTeam"]?>" />
         <input type="submit" value="Edit" class="btn" />
       </form>
     </td>
