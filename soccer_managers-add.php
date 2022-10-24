@@ -28,8 +28,8 @@ if ($conn->connect_error) {
     <div id="lastNameHelp" class="form-text">Enter the last name of the manager.</div>
   </div>
   <div class="mb-3">
-    <label for="HomeTeam" class="form-label">HomeTeam</label>
-    <select class="form-select" aria-label="Select HomeTeam" id="HomeTeam" name="iHomeTeam">
+    <label for="Club" class="form-label">Club</label>
+    <select class="form-select" aria-label="Select Club" id="Club" name="iClub">
     <?php
         $homeTeamSql = "select * from Teams order by Club";
         $homeTeamResult = $conn->query($homeTeamSql);
