@@ -56,7 +56,7 @@ if ($conn->connect_error) {
     <label for="Position" class="form-label">Position</label>
     <select class="form-select" aria-label="Select Position" id="Postion" name="iPosition">
     <?php
-        $positionSql = "select * from Player";
+        $positionSql = "select * from SoccerPlayer";
         $positionResult = $conn->query($positionSql);
         while($positionRow = $positionResult->fetch_assoc()) {
           if ($positionRow['Position'] == $row['Position']) {
