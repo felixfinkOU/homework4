@@ -14,17 +14,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
-// $sql = "SELECT * from Matches where MatchID=?";
-// $stmt = $conn->prepare($sql);
-// $stmt->bind_param("i", $_POST['iMatchID']);
-// $stmt->execute();
-// $result = $stmt->get_result();
-
-// if ($result->num_rows > 0) {
-//   // output data of each row
-//   while($row = $result->fetch_assoc()) {
 ?>
+
 <form method="post" action="matches-add-save.php">
   <div class="mb-3">
     <label for="HomeTeam" class="form-label">HomeTeam</label>
