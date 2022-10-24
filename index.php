@@ -57,7 +57,7 @@ if ($result->num_rows > 0) {
     </td>
     <td>
       <form method="post" action="club-delete-save.php">
-        <input type="hidden" name="iClubID" value="<?=$row["ClubID"]?>" />
+        <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
         <input type="submit" value="Delete" class="btn" />
       </form>
     </td>
