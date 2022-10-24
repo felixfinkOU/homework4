@@ -19,7 +19,6 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['iMatchID']);
 $stmt->execute();
 $result = $stmt->get_result();
-$oHomeTeam = $_POST['oHomeTeam'];
 
 if ($result->num_rows > 0) {
   // output data of each row
