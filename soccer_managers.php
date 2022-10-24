@@ -37,6 +37,12 @@ if ($result->num_rows > 0) {
     <td><?=$row["FirstName"]?></td>
     <td><?=$row["LastName"]?></td>
     <td><?=$row["Club"]?></td>
+    <td>
+      <form method="post" action="soccer_managers-delete-save.php">
+        <input type="hidden" name="iCoachID" value="<?=$row["CoachID"]?>" />
+        <input type="submit" value="Delete" class="btn" />
+      </form>
+    </td>
   </tr>
 <?php
   }

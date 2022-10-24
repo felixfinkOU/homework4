@@ -47,6 +47,12 @@ if ($result->num_rows > 0) {
     <td><?=$row["Club"]?></td>
     <td><?=$row["Position"]?></td>
     <td><?=$row["Nationality"]?></td>
+    <td>
+      <form method="post" action="soccer_players-delete-save.php">
+        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
+        <input type="submit" value="Delete" class="btn" />
+      </form>
+    </td>
   </tr>
 <?php
   }

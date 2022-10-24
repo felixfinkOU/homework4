@@ -55,6 +55,12 @@ if ($result->num_rows > 0) {
         <input type="submit" value="Edit" class="btn" />
       </form>
     </td>
+    <td>
+      <form method="post" action="club-delete-save.php">
+        <input type="hidden" name="iClubID" value="<?=$row["ClubID"]?>" />
+        <input type="submit" value="Delete" class="btn" />
+      </form>
+    </td>
   </tr>
 <?php
   }
