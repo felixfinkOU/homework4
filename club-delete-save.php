@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 $sql = "delete from Teams where Club=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $_POST);['iClub']
+    $stmt->bind_param("s", $_POST['iClub']);
     $stmt->execute();
 ?>
     
