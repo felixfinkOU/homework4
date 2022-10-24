@@ -20,6 +20,8 @@ $stmt->bind_param("i", $_POST['iMatchID']);
 $stmt->execute();
 $result = $stmt->get_result();
 
+$homeTeam = $_POST['iHomeTeam'];
+
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
@@ -27,7 +29,7 @@ if ($result->num_rows > 0) {
 <form method="post" action="matches-edit-save.php">
   <div class="mb-3">
     <label for="HomeTeam" class="form-label">HomeTeam</label>
-    <select class="form-select" aria-label="Select HomeTeam" id="HomeTeam" name="iHomeTeam">
+    <select class="form-select" aria-label="Select HomeTeam" id="HomeTeam" name="iHomeTeam" value="default".$homeTeam>
     <?php
         $homeTeamSql = "select * from Teams order by Club";
         $homeTeamResult = $conn->query($homeTeamSql);
