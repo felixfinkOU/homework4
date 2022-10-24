@@ -55,20 +55,10 @@ if ($conn->connect_error) {
   <div class="mb-3">
     <label for="Position" class="form-label">Position</label>
     <select class="form-select" aria-label="Select Position" id="Postion" name="iPosition">
-    <?php
-        $positionSql = "select distinct * from SoccerPlayer";
-        $positionResult = $conn->query($positionSql);
-        while($positionRow = $positionResult->fetch_assoc()) {
-          if ($positionRow['Position'] == $row['Position']) {
-            $selText = " selected";
-          } else {
-            $selText = "";
-          }
-    ?>
-      <option value="<?=$positionRow['Position']?>"<?=$selText?>><?=$positionRow['Position']?></option>
-    <?php
-        }
-    ?>
+      <option value="Keeper">Keeper</option>
+      <option value="Defender">Defender</option>
+      <option value="Midfielder">Midfielder</option>
+      <option value="Striker">Striker</option>
     </select>
     <div id="lastNameHelp" class="form-text">Enter the position of the player.</div>
   </div>
