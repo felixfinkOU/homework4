@@ -53,12 +53,6 @@ if ($result->num_rows > 0) {
         <input type="hidden" name="iAwayTeam" value="<?=$row["AwayTeam"]?>" />
         <input type="submit" value="Edit" class="btn" />
       </form>
-      <form method="post" action="matches-add.php">
-        <input type="hidden" name="iMatchID" value="<?=$row["MatchID"]?>" />
-        <input type="hidden" name="iHomeTeam" value="<?=$row["HomeTeam"]?>" />
-        <input type="hidden" name="iAwayTeam" value="<?=$row["AwayTeam"]?>" />
-        <input type="submit" value="Add" class="btn" />
-      </form>
     </td>
   </tr>
 <?php
