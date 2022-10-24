@@ -47,10 +47,30 @@ if ($conn->connect_error) {
     </select>
     <div id="lastNameHelp" class="form-text">Enter the club of the player.</div>
   </div>
-  <div class="mb-3">
+  <!-- <div class="mb-3">
     <label for="Position" class="form-label">Position</label>
     <input type="text" class="form-control" id="Position" aria-describedby="positionHelp" name="iPosition">
     <div id="positionHelp" class="form-text">Enter the position of the player.</div>
+  </div> -->
+  <div class="mb-3">
+    <label for="Position" class="form-label">Position</label>
+    <select class="form-select" aria-label="Select Position" id="Postion" name="iPosition">
+    <?php
+        $positionSql = "select * from Player";
+        $positionResult = $conn->query($positionSql);
+        while($positionRow = $positionResult->fetch_assoc()) {
+          if ($positionRow['Position'] == $row['Position']) {
+            $selText = " selected";
+          } else {
+            $selText = "";
+          }
+    ?>
+      <option value="<?=$positionRow['Position']?>"<?=$selText?>><?=$positionRow['Position']?></option>
+    <?php
+        }
+    ?>
+    </select>
+    <div id="lastNameHelp" class="form-text">Enter the position of the player.</div>
   </div>
   <div class="mb-3">
     <label for="Nationality" class="form-label">Nationality</label>
