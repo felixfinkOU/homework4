@@ -63,6 +63,7 @@ $conn->close();
       <input type="text" class="form-control" id="FirstName" aria-describedby="firstNameHelp" name="iFirstName">
       <div id="firstNameHelp" class="form-text">Enter the first name of the player.</div>
     </div>
+    <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
     <button type="submit" class="btn">Submit</button>
   </form>
 </div>
