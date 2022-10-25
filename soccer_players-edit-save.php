@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 if (isset($_POST['iFirstName'])) {
     $iFirstName = $_POST['iFirstName'];
-    $sql = "update SoccerPlayer set FirstName=? where PlayerID=?";
+    $sql = "UPDATE SoccerPlayer set FirstName=? where PlayerID=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("si", $iFirstName, $_POST['iPlayerID']);
     $stmt->execute();
