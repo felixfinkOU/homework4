@@ -64,7 +64,8 @@ $conn->close();
         <h1>Edit First Name</h1>
 
         <label for="FirstName"><b>FirstName</b></label>
-        <input type="text" placeholder="Enter First Name" name="firstName" required>
+        <input type="text" placeholder="Enter First Name" name="iFirstName" required>
+        
 
         <button type="submit" class="btn">Submit</button>
     </form>
