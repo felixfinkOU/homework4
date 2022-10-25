@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
     <td>
       <form action="soccer_players-edit-save.php" method="post">
         <input type="text" name="iFirstName"><input type="submit" value="Edit">
-        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
+        <input type="hidden" name="iCoachID" value="<?=$row["CoachID"]?>" />
       </form>
     </td>
   </tr>
@@ -50,7 +50,7 @@ if ($result->num_rows > 0) {
     <td>
       <form action="soccer_players-edit-save.php" method="post">
         <input type="text" name="iLastName"><input type="submit" value="Edit">
-        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
+        <input type="hidden" name="iCoachID" value="<?=$row["CoachID"]?>" />
       </form>
     </td>
   </tr>
@@ -60,7 +60,7 @@ if ($result->num_rows > 0) {
     <td>
       <form action="soccer_players-edit-save.php" method="post">
         <input type="text" name="iClub"><input type="submit" value="Edit">
-        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
+        <input type="hidden" name="iCoachID" value="<?=$row["CoachID"]?>" />
       </form>
     </td>
   </tr>
