@@ -48,6 +48,12 @@ elseif (isset($_POST['iNationality'])){
     $stmt->bind_param("si", $iNationality, $_POST['iPlayerID']);
     $stmt->execute();      
 }
+else {
+    $sql = "update SoccerPlayer set Nationality=? where PlayerID=?"; 
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("si", "Arsch", $_POST['iPlayerID']);
+    $stmt->execute(); 
+}
 ?>
     
     <h1>Edit Player</h1>
