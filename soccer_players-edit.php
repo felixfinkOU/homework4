@@ -55,7 +55,7 @@ $conn->close();
     </table>
 
 <div>
-  <form method= "post" action="soccer_players-edit-save.php">
+  <form method="post" action="soccer_players-edit-save.php">
     <h1>Edit First Name</h1>
 
     <div class="mb-3">
