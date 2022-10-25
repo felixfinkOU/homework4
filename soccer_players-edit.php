@@ -64,7 +64,7 @@ $conn->close();
       <div id="firstNameHelp" class="form-text">Enter the first name of the player.</div>
     </div>
     <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
-    <input type="submit" value="Edit" class="btn" />
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 <div>

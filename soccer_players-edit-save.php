@@ -55,6 +55,6 @@ elseif (isset($_POST['iNationality'])){
   Player edited.
 </div>
 
-    <a href="soccer_players.php" class="btn btn-primary">Go back</a>
+<a href="soccer_players.php" class="btn btn-primary">Go back</a>
     
 <?php include 'footer.php';?>
