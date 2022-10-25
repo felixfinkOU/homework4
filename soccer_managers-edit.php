@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
     <td>First Name</td>
     <td><?=$row["FirstName"]?></td>
     <td>
-      <form action="soccer_players-edit-save.php" method="post">
+      <form action="soccer_managers-edit-save.php" method="post">
         <input type="text" name="iFirstName"><input type="submit" value="Edit">
         <input type="hidden" name="iCoachID" value="<?=$row["CoachID"]?>" />
       </form>
@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
     <td>Last Name</td>
     <td><?=$row["LastName"]?></td>
     <td>
-      <form action="soccer_players-edit-save.php" method="post">
+      <form action="soccer_managers-edit-save.php" method="post">
         <input type="text" name="iLastName"><input type="submit" value="Edit">
         <input type="hidden" name="iCoachID" value="<?=$row["CoachID"]?>" />
       </form>
@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
     <td>Club</td>
     <td><?=$row["Club"]?></td>
     <td>
-      <form action="soccer_players-edit-save.php" method="post">
+      <form action="soccer_managers-edit-save.php" method="post">
         <input type="text" name="iClub"><input type="submit" value="Edit">
         <input type="hidden" name="iCoachID" value="<?=$row["CoachID"]?>" />
       </form>

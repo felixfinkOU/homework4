@@ -17,21 +17,21 @@ $iCoachID = $_POST['iCoachID'];
 
 if (isset($_POST['iFirstName'])) {
     $iFirstName = $_POST['iFirstName'];
-    $sql = "UPDATE SoccerPlayer set FirstName=? where PlayerID=?";
+    $sql = "UPDATE SoccerManagers set FirstName=? where CoachID=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("si", $iFirstName, $iCoachID);
     $stmt->execute();
 }
 elseif (isset($_POST['iLastName'])){
     $iLastName = $_POST['iLastName'];
-    $sql = "update SoccerPlayer set LastName=? where PlayerID=?"; 
+    $sql = "UPDATE SoccerManagers set LastName=? where CoachID=?"; 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("si", $iLastName, $iCoachID);
     $stmt->execute();   
 }
 elseif (isset($_POST['iClub'])){
     $iClub = $_POST['iClub'];
-    $sql = "update SoccerPlayer set Club=? where PlayerID=?"; 
+    $sql = "UPDATE SoccerManagers set Club=? where CoachID=?"; 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("si", $iClub, $iCoachID);
     $stmt->execute();   
