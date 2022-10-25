@@ -55,21 +55,16 @@ $conn->close();
     </table>
 
 <div>
-    <!-- A button to open the popup form -->
-    <button class="open-button" onclick="openForm()">Edit First Name</button>
+  <form method= "post" action="soccer_players-edit-save.php">
+    <h1>Edit First Name</h1>
 
-    <!-- The form -->
-    <div class="form-popup" id="myForm">
-    <form method= "post" action="soccer_players-edit-save.php" class="form-container">
-        <h1>Edit First Name</h1>
-
-        <label for="FirstName"><b>FirstName</b></label>
-        <input type="text" placeholder="Enter First Name" name="iFirstName" required>
-        
-
-        <button type="submit" class="btn">Submit</button>
-    </form>
+    <div class="mb-3">
+      <label for="FirstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="FirstName" aria-describedby="firstNameHelp" name="iFirstName">
+      <div id="firstNameHelp" class="form-text">Enter the first name of the player.</div>
     </div>
+    <button type="submit" class="btn">Submit</button>
+  </form>
 </div>
 <div>
     <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
