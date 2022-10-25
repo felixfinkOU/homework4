@@ -7,9 +7,6 @@
       <th>Attribute</th>
       <th>Current Value</th>
       <th>New Value</th>
-      <th>Club</th>
-      <th>Position</th>
-      <th>Nationality</th>
     </tr>
   </thead>
   <tbody>
@@ -41,23 +38,52 @@ if ($result->num_rows > 0) {
     <td>First Name</td>
     <td><?=$row["FirstName"]?></td>
     <td>
-      <form action="soccer_players.php" method="post">
-        FirstName: <input type="text" name="iFirstName"><input type="submit">
+      <form action="soccer_players-edit-save.php" method="post">
+        <input type="text" name="iFirstName"><input type="submit" value="Edit">
+        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
       </form>
     </td>
   </tr>
-  <!-- <tr>
-    <td></td>
-    <td>
-    <form action="soccer_players.php" method="post">
-      FirstName: <input type="text" name="iFirstName"><input type="submit">
-    </form>
-    </td>
+  <tr>
+    <td>Last Name</td>
     <td><?=$row["LastName"]?></td>
+    <td>
+      <form action="soccer_players-edit-save.php" method="post">
+        <input type="text" name="iLastName"><input type="submit" value="Edit">
+        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
+      </form>
+    </td>
+  </tr>
+  <tr>
+    <td>Club</td>
     <td><?=$row["Club"]?></td>
+    <td>
+      <form action="soccer_players-edit-save.php" method="post">
+        <input type="text" name="iClub"><input type="submit" value="Edit">
+        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
+      </form>
+    </td>
+  </tr>
+  <tr>
+    <td>Position</td>
     <td><?=$row["Position"]?></td>
-    <td><?=$row["Nationality"]?></td>
-  </tr> -->
+    <td>
+      <form action="soccer_players-edit-save.php" method="post">
+        <input type="text" name="iPosition"><input type="submit" value="Edit">
+        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
+      </form>
+    </td>
+  </tr>
+  <tr>
+    <td>Nationality</td>
+    <td><?=$row["Natioanlity"]?></td>
+    <td>
+      <form action="soccer_players-edit-save.php" method="post">
+        <input type="text" name="iNationality"><input type="submit" value="Edit">
+        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
+      </form>
+    </td>
+  </tr>
 
 <?php
   }
@@ -68,20 +94,6 @@ $conn->close();
 ?>
   </tbody>
     </table>
-
-<div>
-  <form method="post" action="soccer_players-edit-save.php">
-    <h1>Edit First Name</h1>
-
-    <div class="mb-3">
-      <label for="FirstName" class="form-label">First Name</label>
-      <input type="text" class="form-control" id="FirstName" aria-describedby="firstNameHelp" name="iFirstName">
-      <div id="firstNameHelp" class="form-text">Enter the first name of the player.</div>
-    </div>
-    <input type="hidden" name="iPlayerID" value="<?=$row['PlayerID']?>" />
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
 <div>
     <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
 </div>
