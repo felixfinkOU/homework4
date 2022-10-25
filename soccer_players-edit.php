@@ -39,6 +39,23 @@ if ($result->num_rows > 0) {
 ?>
   <tr>
     <td><?=$row["PlayerID"]?></td>
+    <td>
+      <!-- A button to open the popup form -->
+      <button class="open-button" onclick="openForm()">Open Form</button>
+
+      <!-- The form -->
+      <div class="form-popup" id="myForm">
+        <form action="soccer_players-edit-save.php" class="form-container">
+          <h1>Edit First Name</h1>
+
+          <label for="FirstName"><b>FirstName</b></label>
+          <input type="text" placeholder="Enter First Name" name="iFirstName" required>
+
+          <button type="submit" class="btn">Submit</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    </td>
     <td><?=$row["FirstName"]?></td>
     <td><?=$row["LastName"]?></td>
     <td><?=$row["Club"]?></td>
