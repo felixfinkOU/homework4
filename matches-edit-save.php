@@ -37,7 +37,7 @@ elseif (isset($_POST['iHomeTeamGoals'])){
     $stmt->execute(); 
 }
 elseif (isset($_POST['iAwayTeamGoals'])){
-    $iAwayTeamGoals = $_POST['AwayTeamGoals'];
+    $iAwayTeamGoals = $_POST['iAwayTeamGoals'];
     $sql = "UPDATE Matches set AwayTeamGoals=? where MatchID=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $iAwayTeamGoals, $iMatchID);
