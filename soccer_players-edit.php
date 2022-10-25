@@ -26,11 +26,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$sql = "SELECT * from SoccerPlayer where PlayerID=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_POST['iPlayerID']);
+$stmt->execute();
+$result = $stmt->get_result();
 
-$var = $_POST['iPlayerID'];
-$sql = "SELECT * from SoccerPlayer where PlayerID='$var'";
-
-$result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
