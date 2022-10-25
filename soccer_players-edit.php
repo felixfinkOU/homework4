@@ -95,7 +95,7 @@ $conn->close();
   </tbody>
     </table>
 <div>
-    <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
+    <a class="btn btn-primary" type="button" href="soccer_players.php">Go Back</a>
 </div>
 
 <?php include 'footer.php';?>

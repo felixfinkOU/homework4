@@ -13,50 +13,36 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$iPlayerID = $_POST['iPlayerID'];
+$iCoachID = $_POST['iCoachID'];
 
 if (isset($_POST['iFirstName'])) {
     $iFirstName = $_POST['iFirstName'];
     $sql = "UPDATE SoccerPlayer set FirstName=? where PlayerID=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $iFirstName, $iPlayerID);
+    $stmt->bind_param("si", $iFirstName, $iCoachID);
     $stmt->execute();
 }
 elseif (isset($_POST['iLastName'])){
     $iLastName = $_POST['iLastName'];
     $sql = "update SoccerPlayer set LastName=? where PlayerID=?"; 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $iLastName, $_POST['iPlayerID']);
+    $stmt->bind_param("si", $iLastName, $iCoachID);
     $stmt->execute();   
 }
 elseif (isset($_POST['iClub'])){
     $iClub = $_POST['iClub'];
     $sql = "update SoccerPlayer set Club=? where PlayerID=?"; 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $iClub, $_POST['iPlayerID']);
+    $stmt->bind_param("si", $iClub, $iCoachID);
     $stmt->execute();   
-}
-elseif (isset($_POST['iPosition'])){
-    $iPosition = $_POST['iPosition'];
-    $sql = "update SoccerPlayer set Position=? where PlayerID=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $iPosition, $_POST['iPlayerID']);
-    $stmt->execute();     
-}
-elseif (isset($_POST['iNationality'])){
-    $iNationality = $_POST['iNationality'];
-    $sql = "update SoccerPlayer set Nationality=? where PlayerID=?"; 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $iNationality, $_POST['iPlayerID']);
-    $stmt->execute();      
 }
 ?>
     
-    <h1>Edit Player</h1>
+    <h1>Edit Manager</h1>
 <div class="alert alert-success" role="alert">
-  Player edited.
+  Manager edited.
 </div>
 
-<a href="soccer_players.php" class="btn btn-primary">Go back</a>
+<a href="soccer_managers.php" class="btn btn-primary">Go back</a>
     
 <?php include 'footer.php';?>
