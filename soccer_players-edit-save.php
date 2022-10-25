@@ -13,11 +13,13 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$iPlayerID = $_POST['iPlayerID'];
+
 if (isset($_POST['iFirstName'])) {
     $iFirstName = $_POST['iFirstName'];
     $sql = "UPDATE SoccerPlayer set FirstName=? where PlayerID=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $iFirstName, $_POST['iPlayerID']);
+    $stmt->bind_param("si", $iFirstName, $iPlayerID);
     $stmt->execute();
 }
 elseif (isset($_POST['iLastName'])){
