@@ -1,7 +1,16 @@
 <?php include 'header.php';?>
 
     <h1>Edit Club</h1>
-<?php
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Current Value</th>
+      <th>New Value</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
 $servername = "localhost";
 $username = "felixfin_user2";
 $password = "O-,GXdw4e3QG";
@@ -14,26 +23,27 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT Club, Standings from Teams where Club=?";
+$sql = "SELECT * from Teams where Club=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $_POST['iClub']);
 $stmt->execute();
 $result = $stmt->get_result();
 
+
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
-<form method="post" action="club-edit-save.php">
-  <div class="mb-3">
-    <label for="Standings" class="form-label">Club Standings</label>
-    <input type="text" class="form-control" id="Standings" aria-describedby="standingsHelp" 
-        name="iStandings" value="<?=$row['Standings']?>">
-    <div id="standingsHelp" class="form-text">Enter the Club's current standing in the league.</div>
-  </div>
-  <input type="hidden" name="iClub" value="<?=$row['Club']?>">
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  <tr>
+    <td>Standings</td>
+    <td><?=$row["Standings"]?></td>
+    <td>
+      <form action="club-edit-save.php" method="post">
+        <input type="text" name="iStandings"><input type="submit" value="Edit">
+        <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
+      </form>
+    </td>
+  </tr>
 <?php
   }
 } else {
@@ -41,5 +51,10 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+  </tbody>
+    </table>
+<div>
+    <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
+</div>
 
 <?php include 'footer.php';?>
