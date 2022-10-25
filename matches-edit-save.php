@@ -13,17 +13,17 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$iClub = $_POST['iClub'];
+$iMatchID = $_POST['iMatchID'];
 $iHomeTeam = $_POST['iHomeTeam'];
 $iAwayTeam = $_POST['iAwayTeam'];
 $iHomeTeamGoals = $_POST['iHomeTeamGoals'];
 $iAwayTeamGoals = $_POST['iAwayTeamGoals'];
 $iMatchday = $_POST['iMatchday']; 
 
-$sql = "UPDATE Teams set HomeTeam=?, AwayTeam=?, HomeTeamGoals=?, AwayTeamGoals=?, Matchday=? where Club=?";
+$sql = "UPDATE Matches set HomeTeam=?, AwayTeam=?, HomeTeamGoals=?, AwayTeamGoals=?, Matchday=? where MatchID=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssiiis", $iHomeTeam, $iAwayTeam, $iHomeTeamGoals, $iAwayTeamGoals, $iMatchday, $iClub);
+    $stmt->bind_param("ssiiis", $iHomeTeam, $iAwayTeam, $iHomeTeamGoals, $iAwayTeamGoals, $iMatchday, $iMatchID);
     $stmt->execute();
 ?>
     
