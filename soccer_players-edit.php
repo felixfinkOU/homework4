@@ -4,9 +4,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>PlayerID</th>
-      <th>FirstName</th>
-      <th>LastName</th>
+      <th>Attribute</th>
+      <th>Current Value</th>
+      <th>New Value</th>
       <th>Club</th>
       <th>Position</th>
       <th>Nationality</th>
@@ -38,26 +38,26 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
   <tr>
-    <td><?=$row["PlayerID"]?></td>
+    <td>First Name</td>
     <td><?=$row["FirstName"]?></td>
-    <td><?=$row["LastName"]?></td>
-    <td><?=$row["Club"]?></td>
-    <td><?=$row["Position"]?></td>
-    <td><?=$row["Nationality"]?></td>
+    <td>
+      <form action="soccer_players.php" method="post">
+        FirstName: <input type="text" name="iFirstName"><input type="submit">
+      </form>
+    </td>
   </tr>
-  <tr>
+  <!-- <tr>
     <td></td>
     <td>
     <form action="soccer_players.php" method="post">
-      FirstName: <input type="text" name="iFirstName"><br>
-      <input type="submit">
+      FirstName: <input type="text" name="iFirstName"><input type="submit">
     </form>
     </td>
     <td><?=$row["LastName"]?></td>
     <td><?=$row["Club"]?></td>
     <td><?=$row["Position"]?></td>
     <td><?=$row["Nationality"]?></td>
-  </tr>
+  </tr> -->
 
 <?php
   }
