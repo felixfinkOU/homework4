@@ -23,14 +23,14 @@ if (isset($_POST['iFirstName'])) {
     $stmt->execute();
 }
 elseif (isset($_POST['iLastName'])){
-    $LastName = $_POST['iLastName'];
+    $iLastName = $_POST['iLastName'];
     $sql = "update SoccerPlayer set LastName=? where PlayerID=?"; 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("si", $iLastName, $_POST['iPlayerID']);
     $stmt->execute();   
 }
 elseif (isset($_POST['iClub'])){
-    $Club = $_POST['iClub'];
+    $iClub = $_POST['iClub'];
     $sql = "update SoccerPlayer set Club=? where PlayerID=?"; 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("si", $iClub, $_POST['iPlayerID']);
@@ -44,7 +44,7 @@ elseif (isset($_POST['iPosition'])){
     $stmt->execute();     
 }
 elseif (isset($_POST['iNationality'])){
-    $Nationality = $_POST['iNationality'];
+    $iNationality = $_POST['iNationality'];
     $sql = "update SoccerPlayer set Nationality=? where PlayerID=?"; 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("si", $iNationality, $_POST['iPlayerID']);
