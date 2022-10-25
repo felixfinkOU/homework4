@@ -48,6 +48,17 @@ if ($result->num_rows > 0) {
     <td><?=$row["Position"]?></td>
     <td><?=$row["Nationality"]?></td>
     <td>
+      <form method="post" action="soccer_players-edit.php">
+        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
+        <input type="hidden" name="iFirstName" value="<?=$row["FirstName"]?>" />
+        <input type="hidden" name="iLastName" value="<?=$row["LastName"]?>" />
+        <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
+        <input type="hidden" name="iPosition" value="<?=$row["Position"]?>" />
+        <input type="hidden" name="iNationality" value="<?=$row["Nationality"]?>" />
+        <input type="submit" value="Edit" class="btn" />
+      </form>
+    </td>
+    <td>
       <form method="post" action="soccer_players-delete-save.php">
         <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
         <input type="submit" value="Delete" class="btn" />
