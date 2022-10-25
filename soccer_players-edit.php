@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
   </tr>
   <tr>
     <td>Nationality</td>
-    <td><?=$row["Natioanlity"]?></td>
+    <td><?=$row["Nationality"]?></td>
     <td>
       <form action="soccer_players-edit-save.php" method="post">
         <input type="text" name="iNationality"><input type="submit" value="Edit">
