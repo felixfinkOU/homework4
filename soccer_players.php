@@ -28,10 +28,10 @@ if ($conn->connect_error) {
 
 if (isset($_POST['position'])) {
     $var = $_POST['position'];
-    $sql = "SELECT * from SoccerPlayer where Position='$var'";
+    $sql = "SELECT * from SoccerPlayer where Position='$var' order by PlayerID";
 }
 else {
-    $sql = "SELECT * from SoccerPlayer";
+    $sql = "SELECT * from SoccerPlayer order by PlayerID";
 }
 $result = $conn->query($sql);
 
