@@ -5,8 +5,8 @@
   <a class="btn btn-primary" type="button" href="matches.php">Show Matches</a>
   <a class="btn btn-primary" type="button" href="soccer_managers.php">Show Managers</a>
   <a class="btn btn-primary" type="button" href="soccer_players.php">Show Players</a>
-  <a class="btn btn-primary" type="button" href="managers-matches.php">Show Managers-Matches Join</a>
-  <a class="btn btn-primary" type="button" href="club-cards.php">Show Club-Cards</a>
+  <!-- <a class="btn btn-primary" type="button" href="managers-matches.php">Show Managers-Matches Join</a> -->
+  <!-- <a class="btn btn-primary" type="button" href="club-cards.php">Show Club-Cards</a> -->
 </div>
 <br></br>
 <div>
