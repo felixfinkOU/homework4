@@ -49,13 +49,13 @@ if ($result->num_rows > 0) {
   <tr>
     <td><a href="matches.php?Team=<?=$row["Club"]?>"><?=$row["Club"]?></a></td>
     <td><?=$row["Standings"]?></td>
-    <!-- <td>
+    <td>
       <form method="post" action="club-edit.php">
         <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
         <input type="submit" value="Edit" class="btn" />
       </form>
-    </td> -->
-    <td>
+    </td>
+    <!-- <td>
       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editClub<?=$row["Club"]?>">
         Edit
       </button>
@@ -81,7 +81,7 @@ if ($result->num_rows > 0) {
           </div>
         </div>
       </div>
-    </td>
+    </td> -->
     <td>
       <form method="post" action="club-delete-save.php">
         <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
