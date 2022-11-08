@@ -113,7 +113,7 @@ if ($result->num_rows > 0) {
                   <input type="text" class="form-control" id="editPlayer<?=$row["PlayerID"]?>Nationality" aria-describedby="editPlayer<?=$row["PlayerID"]?>Help" name="iNationality" value="<?=$row['Nationality']?>">
                   <div id="editPlayer<?=$row["PlayerID"]?>Help" class="form-text">Enter the Player's Nationality.</div>
                 </div>
-                <input type="hidden" name="iCoachID" value="<?=$row['CoachID']?>">
+                <input type="hidden" name="iPlayerID" value="<?=$row['PlayerID']?>">
                 <input type="hidden" name="saveType" value="Edit">
                 <input type="submit" class="btn btn-primary" value="Submit">
               </form>
