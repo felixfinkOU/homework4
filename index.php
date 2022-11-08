@@ -49,13 +49,13 @@ if ($result->num_rows > 0) {
   <tr>
     <td><a href="matches.php?Team=<?=$row["Club"]?>"><?=$row["Club"]?></a></td>
     <td><?=$row["Standings"]?></td>
-    <td>
+    <!-- <td>
       <form method="post" action="club-edit.php">
         <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
         <input type="submit" value="Edit" class="btn" />
       </form>
-    </td>
-    <!-- <td>
+    </td> -->
+    <td>
       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editClub<?=$row["Club"]?>">
         Edit
       </button>
@@ -67,7 +67,7 @@ if ($result->num_rows > 0) {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form method="post" action="">
+              <form method="post" action="club-edit-save.php">
                 <div class="mb-3">
                   <label for="editClub<?=$row["Club"]?>Name" class="form-label">Standings</label>
                   <input type="text" class="form-control" id="editClub<?=$row["Club"]?>Name" aria-describedby="editClub<?=$row["Club"]?>Help" name="iStandings" value="<?=$row['Standings']?>">
@@ -81,7 +81,7 @@ if ($result->num_rows > 0) {
           </div>
         </div>
       </div>
-    </td> -->
+    </td>
     <td>
       <form method="post" action="club-delete-save.php">
         <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
