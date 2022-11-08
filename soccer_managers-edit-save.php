@@ -43,7 +43,7 @@ $iClub = $_POST['iClub'];
 $sql = "UPDATE SoccerManagers set FirstName=? AND set LastName=? AND set Club=? where CoachID=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $iFirstName, $iLastName, $iClub, $iCoachID);
+    $stmt->bind_param("sssi", $iFirstName, $iLastName, $iClub, $iCoachID);
     $stmt->execute();
 ?>
     
