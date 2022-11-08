@@ -66,7 +66,7 @@ if ($result->num_rows > 0) {
                       $homeTeamSql = "select * from Teams order by Club";
                       $homeTeamResult = $conn->query($homeTeamSql);
                       while($homeTeamRow = $homeTeamResult->fetch_assoc()) {
-                        if ($homeTeamRow['Club'] == $row['Club']) {
+                        if ($homeTeamRow['Club'] == $row['HomeTeam']) {
                           $selText = " selected";
                         } else {
                           $selText = "";
@@ -85,7 +85,7 @@ if ($result->num_rows > 0) {
                       $awayTeamSql = "select * from Teams order by Club";
                       $awayTeamResult = $conn->query($awayTeamSql);
                       while($awayTeamRow = $awayTeamResult->fetch_assoc()) {
-                        if ($awayTeamRow['Club'] == $row['Club']) {
+                        if ($awayTeamRow['Club'] == $row['AwayTeam']) {
                           $selText = " selected";
                         } else {
                           $selText = "";
