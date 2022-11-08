@@ -5,8 +5,6 @@
   <a class="btn btn-primary" type="button" href="matches.php">Show Matches</a>
   <a class="btn btn-primary" type="button" href="soccer_managers.php">Show Managers</a>
   <a class="btn btn-primary" type="button" href="soccer_players.php">Show Players</a>
-  <!-- <a class="btn btn-primary" type="button" href="managers-matches.php">Show Managers-Matches Join</a> -->
-  <!-- <a class="btn btn-primary" type="button" href="club-cards.php">Show Club-Cards</a> -->
 </div>
 <br></br>
 <div>
@@ -49,12 +47,6 @@ if ($result->num_rows > 0) {
   <tr>
     <td><a href="matches.php?Team=<?=$row["Club"]?>"><?=$row["Club"]?></a></td>
     <td><?=$row["Standings"]?></td>
-    <!-- <td>
-      <form method="post" action="club-edit.php">
-        <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
-        <input type="submit" value="Edit" class="btn" />
-      </form>
-    </td> -->
     <td>
       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editClub<?=$row["Club"]?>">
         Edit

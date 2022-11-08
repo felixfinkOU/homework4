@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
     <td><?=$row["FirstName"]?></td>
     <td><?=$row["LastName"]?></td>
     <td><?=$row["Club"]?></td>
-    <td>
+    <!-- <td>
       <form method="post" action="soccer_managers-edit.php">
         <input type="hidden" name="iCoachID" value="<?=$row["CoachID"]?>" />
         <input type="hidden" name="iFirstName" value="<?=$row["FirstName"]?>" />
@@ -45,6 +45,43 @@ if ($result->num_rows > 0) {
         <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
         <input type="submit" value="Edit" class="btn" />
       </form>
+    </td> -->
+    <td>
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editManager<?=$row["CoachID"]?>">
+        Edit
+      </button>
+      <div class="modal fade" id="editManager<?=$row["CoachID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editManager<?=$row["CoachID"]?>Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editManager<?=$row["CoachID"]?>Label">Edit Manager</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="soccer_managers-edit-save.php">
+                <div class="mb-3">
+                  <label for="editManager<?=$row["CoachID"]?>FirstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="editManager<?=$row["CoachID"]?>FirstName" aria-describedby="editManager<?=$row["CoachID"]?>Help" name="iFirstName" value="<?=$row['FirstName']?>">
+                  <div id="editManager<?=$row["CoachID"]?>Help" class="form-text">Enter the Managers's First Name.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="editManager<?=$row["CoachID"]?>LastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="editManager<?=$row["CoachID"]?>LastName" aria-describedby="editManager<?=$row["CoachID"]?>Help" name="iLastName" value="<?=$row['LastName']?>">
+                  <div id="editManager<?=$row["CoachID"]?>Help" class="form-text">Enter the Managers's Last Name.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="editManager<?=$row["CoachID"]?>Club" class="form-label">Club</label>
+                  <input type="text" class="form-control" id="editManager<?=$row["CoachID"]?>Club" aria-describedby="editManager<?=$row["CoachID"]?>Help" name="iClub" value="<?=$row['Club']?>">
+                  <div id="editManager<?=$row["CoachID"]?>Help" class="form-text">Enter the Managers's Club.</div>
+                </div>
+                <input type="hidden" name="iManager" value="<?=$row['CoachID']?>">
+                <input type="hidden" name="saveType" value="Edit">
+                <input type="submit" class="btn btn-primary" value="Submit">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </td>
     <td>
       <form method="post" action="soccer_managers-delete-save.php">
