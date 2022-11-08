@@ -23,7 +23,7 @@ $iMatchday = $_POST['iMatchday'];
 $sql = "UPDATE Matches set HomeTeam=?, AwayTeam=?, HomeTeamGoals=?, AwayTeamGoals=?, Matchday=? where MatchID=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssiii", $iHomeTeam, $iAwayTeam, $iHomeTeamGoals, $iAwayTeamGoals, $iMatchday, $iMatchID);
+    $stmt->bind_param("ssiiii", $iHomeTeam, $iAwayTeam, $iHomeTeamGoals, $iAwayTeamGoals, $iMatchday, $iMatchID);
     $stmt->execute();
 ?>
     

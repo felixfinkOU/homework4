@@ -63,16 +63,16 @@ if ($result->num_rows > 0) {
                   <label for="editMatch<?=$row["MatchID"]?>HomeTeam" class="form-label">Home Team</label>
                   <select class="form-select" id="editMatch<?=$row["MatchID"]?>HomeTeam" aria-label="Select HomeTeam" name="iHomeTeam" value="<?=$row['HomeTeam']?>">
                   <?php
-                      $clubSql = "select * from Teams order by Club";
-                      $clubResult = $conn->query($clubSql);
-                      while($clubRow = $clubResult->fetch_assoc()) {
-                        if ($clubRow['Club'] == $row['Club']) {
+                      $homeTeamSql = "select * from Teams order by Club";
+                      $homeTeamResult = $conn->query($homeTeamSql);
+                      while($homeTeamRow = $homeTeamResult->fetch_assoc()) {
+                        if ($homeTeamRow['Club'] == $row['Club']) {
                           $selText = " selected";
                         } else {
                           $selText = "";
                         }
                   ?>
-                    <option value="<?=$clubRow['Club']?>"<?=$selText?>><?=$clubRow['Club']?></option>
+                    <option value="<?=$homeTeamRow['Club']?>"<?=$selText?>><?=$homeTeamRow['Club']?></option>
                   <?php
                       }
                   ?>
@@ -82,16 +82,16 @@ if ($result->num_rows > 0) {
                   <label for="editMatch<?=$row["MatchID"]?>AwayTeam" class="form-label">Away Team</label>
                   <select class="form-select" id="editMatch<?=$row["MatchID"]?>AwayTeam" aria-label="Select AwayTeam" name="iAwayTeam" value="<?=$row['AwayTeam']?>">
                   <?php
-                      $clubSql = "select * from Teams order by Club";
-                      $clubResult = $conn->query($clubSql);
-                      while($clubRow = $clubResult->fetch_assoc()) {
-                        if ($clubRow['Club'] == $row['Club']) {
+                      $awayTeamSql = "select * from Teams order by Club";
+                      $awayTeamResult = $conn->query($awayTeamSql);
+                      while($awayTeamRow = $awayTeamResult->fetch_assoc()) {
+                        if ($awayTeamRow['Club'] == $row['Club']) {
                           $selText = " selected";
                         } else {
                           $selText = "";
                         }
                   ?>
-                    <option value="<?=$clubRow['Club']?>"<?=$selText?>><?=$clubRow['Club']?></option>
+                    <option value="<?=$awayTeamRow['Club']?>"<?=$selText?>><?=$awayTeamRow['Club']?></option>
                   <?php
                       }
                   ?>
