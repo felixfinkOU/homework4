@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
                 </div> -->
                 <div class="mb-3">
                   <label for="editManager<?=$row["CoachID"]?>Club" class="form-label">Club</label>
-                  <select class="form-select" id="editManager<?=$row["CoachID"]?>Club" aria-label="Select HomeTeam" name="iClub">
+                  <select class="form-select" id="editManager<?=$row["CoachID"]?>Club" aria-label="Select Club" name="iClub">
                   <?php
                       $clubSql = "select * from Teams order by Club";
                       $clubResult = $conn->query($clubSql);
