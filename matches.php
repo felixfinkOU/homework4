@@ -47,12 +47,79 @@ if ($result->num_rows > 0) {
     <td><?=$row["AwayTeamGoals"]?></td>
     <td><?=$row["Matchday"]?></td>
     <td>
-      <form method="post" action="matches-edit.php">
-        <input type="hidden" name="iMatchID" value="<?=$row["MatchID"]?>" />
-        <input type="hidden" name="iHomeTeam" value="<?=$row["HomeTeam"]?>" />
-        <input type="hidden" name="iAwayTeam" value="<?=$row["AwayTeam"]?>" />
-        <input type="submit" value="Edit" class="btn" />
-      </form>
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editMatch<?=$row["MatchID"]?>">
+        Edit
+      </button>
+      <div class="modal fade" id="editMatch<?=$row["MatchID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editMatch<?=$row["MatchID"]?>Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editMatch<?=$row["MatchID"]?>Label">Edit Match</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="matches-edit-save.php">
+                <div class="mb-3">
+                  <label for="editMatch<?=$row["MatchID"]?>HomeTeam" class="form-label">Home Team</label>
+                  <select class="form-select" id="editMatch<?=$row["MatchID"]?>HomeTeam" aria-label="Select HomeTeam" name="iHomeTeam" value="<?=$row['HomeTeam']?>">
+                  <?php
+                      $clubSql = "select * from Teams order by Club";
+                      $clubResult = $conn->query($clubSql);
+                      while($clubRow = $clubResult->fetch_assoc()) {
+                        if ($clubRow['Club'] == $row['Club']) {
+                          $selText = " selected";
+                        } else {
+                          $selText = "";
+                        }
+                  ?>
+                    <option value="<?=$clubRow['Club']?>"<?=$selText?>><?=$clubRow['Club']?></option>
+                  <?php
+                      }
+                  ?>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="editMatch<?=$row["MatchID"]?>AwayTeam" class="form-label">Away Team</label>
+                  <select class="form-select" id="editMatch<?=$row["MatchID"]?>AwayTeam" aria-label="Select AwayTeam" name="iAwayTeam" value="<?=$row['AwayTeam']?>">
+                  <?php
+                      $clubSql = "select * from Teams order by Club";
+                      $clubResult = $conn->query($clubSql);
+                      while($clubRow = $clubResult->fetch_assoc()) {
+                        if ($clubRow['Club'] == $row['Club']) {
+                          $selText = " selected";
+                        } else {
+                          $selText = "";
+                        }
+                  ?>
+                    <option value="<?=$clubRow['Club']?>"<?=$selText?>><?=$clubRow['Club']?></option>
+                  <?php
+                      }
+                  ?>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="editMatch<?=$row["MatchID"]?>HomeTeamGoals" class="form-label">HomeTeamGoals</label>
+                  <input type="text" class="form-control" id="editMatch<?=$row["MatchID"]?>HomeTeamGoals" aria-describedby="editMatch<?=$row["MatchID"]?>Help" name="iHomeTeamGoals" value="<?=$row['HomeTeamGoals']?>">
+                  <div id="editMatch<?=$row["MatchID"]?>Help" class="form-text">Enter the Home Team's Goals.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="editMatch<?=$row["MatchID"]?>AwayTeamGoals" class="form-label">AwayTeamGoals</label>
+                  <input type="text" class="form-control" id="editMatch<?=$row["MatchID"]?>AwayTeamGoals" aria-describedby="editMatch<?=$row["MatchID"]?>Help" name="iAwayTeamGoals" value="<?=$row['AwayTeamGoals']?>">
+                  <div id="editMatch<?=$row["MatchID"]?>Help" class="form-text">Enter the Away Team's Goals.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="editMatch<?=$row["MatchID"]?>Matchday" class="form-label">Matchday</label>
+                  <input type="text" class="form-control" id="editMatch<?=$row["MatchID"]?>Matchday" aria-describedby="editMatch<?=$row["MatchID"]?>Help" name="iMatchday" value="<?=$row['Matchday']?>">
+                  <div id="editMatch<?=$row["MatchID"]?>Help" class="form-text">Enter the Matchday.</div>
+                </div>
+                <input type="hidden" name="iMatchID" value="<?=$row['MatchID']?>">
+                <input type="hidden" name="saveType" value="Edit">
+                <input type="submit" class="btn btn-primary" value="Submit">
+              </form>
+            </div> 
+          </div>
+        </div>
+      </div>
     </td>
     <td>
       <form method="post" action="matches-delete-save.php">

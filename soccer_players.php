@@ -46,22 +46,11 @@ if ($result->num_rows > 0) {
     <td><?=$row["Club"]?></td>
     <td><?=$row["Position"]?></td>
     <td><?=$row["Nationality"]?></td>
-    <!-- <td>
-      <form method="post" action="soccer_players-edit.php">
-        <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
-        <input type="hidden" name="iFirstName" value="<?=$row["FirstName"]?>" />
-        <input type="hidden" name="iLastName" value="<?=$row["LastName"]?>" />
-        <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
-        <input type="hidden" name="iPosition" value="<?=$row["Position"]?>" />
-        <input type="hidden" name="iNationality" value="<?=$row["Nationality"]?>" />
-        <input type="submit" value="Edit" class="btn" />
-      </form>
-    </td> -->
     <td>
       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editPlayer<?=$row["PlayerID"]?>">
         Edit
       </button>
-      <div class="modal fade" id="editPlayer<?=$row["PlayerID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editManager<?=$row["PlayerID"]?>Label" aria-hidden="true">
+      <div class="modal fade" id="editPlayer<?=$row["PlayerID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editPlayer<?=$row["PlayerID"]?>Label" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -117,13 +106,11 @@ if ($result->num_rows > 0) {
                 <input type="hidden" name="saveType" value="Edit">
                 <input type="submit" class="btn btn-primary" value="Submit">
               </form>
-            </div>
-            
+            </div> 
           </div>
         </div>
       </div>
     </td>
-    <td>
     <td>
       <form method="post" action="soccer_players-delete-save.php">
         <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
