@@ -69,10 +69,30 @@ if ($result->num_rows > 0) {
                   <input type="text" class="form-control" id="editManager<?=$row["CoachID"]?>LastName" aria-describedby="editManager<?=$row["CoachID"]?>Help" name="iLastName" value="<?=$row['LastName']?>">
                   <div id="editManager<?=$row["CoachID"]?>Help" class="form-text">Enter the Managers's Last Name.</div>
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                   <label for="editManager<?=$row["CoachID"]?>Club" class="form-label">Club</label>
                   <input type="text" class="form-control" id="editManager<?=$row["CoachID"]?>Club" aria-describedby="editManager<?=$row["CoachID"]?>Help" name="iClub" value="<?=$row['Club']?>">
                   <div id="editManager<?=$row["CoachID"]?>Help" class="form-text">Enter the Managers's Club.</div>
+                </div> -->
+                <div class="mb-3">
+                  <label for="editManager<?=$row["CoachID"]?>Club" class="form-label">Club</label>
+                  <select class="form-select" id="editManager<?=$row["CoachID"]?>Club" aria-describedby="editManager<?=$row["CoachID"]?>Help" name="iClub" value="<?=$row['Club']?>">
+                  <div id="editManager<?=$row["CoachID"]?>Help" class="form-text">Enter the Managers's Club.</div>
+                  <?php
+                      $clubSql = "select * from Teams order by Club";
+                      $clubResult = $conn->query($clubSql);
+                      while($clubRow = $clubResult->fetch_assoc()) {
+                        if ($clubRow['Club'] == $row['Club']) {
+                          $selText = " selected";
+                        } else {
+                          $selText = "";
+                        }
+                  ?>
+                    <option value="<?=$clubRow['Club']?>"<?=$selText?>><?=$clubRow['Club']?></option>
+                  <?php
+                      }
+                  ?>
+                  </select>
                 </div>
                 <input type="hidden" name="iCoachID" value="<?=$row['CoachID']?>">
                 <input type="hidden" name="saveType" value="Edit">
