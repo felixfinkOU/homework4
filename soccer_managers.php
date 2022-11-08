@@ -74,7 +74,7 @@ if ($result->num_rows > 0) {
                   <input type="text" class="form-control" id="editManager<?=$row["CoachID"]?>Club" aria-describedby="editManager<?=$row["CoachID"]?>Help" name="iClub" value="<?=$row['Club']?>">
                   <div id="editManager<?=$row["CoachID"]?>Help" class="form-text">Enter the Managers's Club.</div>
                 </div>
-                <input type="hidden" name="iManager" value="<?=$row['CoachID']?>">
+                <input type="hidden" name="iCoachID" value="<?=$row['CoachID']?>">
                 <input type="hidden" name="saveType" value="Edit">
                 <input type="submit" class="btn btn-primary" value="Submit">
               </form>
