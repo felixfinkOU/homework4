@@ -24,28 +24,6 @@ $sql = "UPDATE SoccerManagers set FirstName=?, LastName=?, Club=? where CoachID=
     $stmt->bind_param("sssi", $iFirstName, $iLastName, $iClub, $iCoachID);
     $stmt->execute();
 ?>
-// if (isset($_POST['iFirstName'])) {
-//     $iFirstName = $_POST['iFirstName'];
-//     $sql = "UPDATE SoccerManagers set FirstName=? where CoachID=?";
-//     $stmt = $conn->prepare($sql);
-//     $stmt->bind_param("si", $iFirstName, $iCoachID);
-//     $stmt->execute();
-// }
-// elseif (isset($_POST['iLastName'])){
-//     $iLastName = $_POST['iLastName'];
-//     $sql = "UPDATE SoccerManagers set LastName=? where CoachID=?"; 
-//     $stmt = $conn->prepare($sql);
-//     $stmt->bind_param("si", $iLastName, $iCoachID);
-//     $stmt->execute();   
-// }
-// elseif (isset($_POST['iClub'])){
-//     $iClub = $_POST['iClub'];
-//     $sql = "UPDATE SoccerManagers set Club=? where CoachID=?"; 
-//     $stmt = $conn->prepare($sql);
-//     $stmt->bind_param("si", $iClub, $iCoachID);
-//     $stmt->execute();   
-// }
-// ?>
     
     <h1>Edit Manager</h1>
 <div class="alert alert-success" role="alert">

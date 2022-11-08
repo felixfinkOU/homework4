@@ -8,7 +8,6 @@
       <th>FirstName</th>
       <th>LastName</th>
       <th>Club</th>
-
     </tr>
   </thead>
   <tbody>
@@ -37,15 +36,6 @@ if ($result->num_rows > 0) {
     <td><?=$row["FirstName"]?></td>
     <td><?=$row["LastName"]?></td>
     <td><?=$row["Club"]?></td>
-    <!-- <td>
-      <form method="post" action="soccer_managers-edit.php">
-        <input type="hidden" name="iCoachID" value="<?=$row["CoachID"]?>" />
-        <input type="hidden" name="iFirstName" value="<?=$row["FirstName"]?>" />
-        <input type="hidden" name="iLastName" value="<?=$row["LastName"]?>" />
-        <input type="hidden" name="iClub" value="<?=$row["Club"]?>" />
-        <input type="submit" value="Edit" class="btn" />
-      </form>
-    </td> -->
     <td>
       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editManager<?=$row["CoachID"]?>">
         Edit
@@ -69,11 +59,6 @@ if ($result->num_rows > 0) {
                   <input type="text" class="form-control" id="editManager<?=$row["CoachID"]?>LastName" aria-describedby="editManager<?=$row["CoachID"]?>Help" name="iLastName" value="<?=$row['LastName']?>">
                   <div id="editManager<?=$row["CoachID"]?>Help" class="form-text">Enter the Managers's Last Name.</div>
                 </div>
-                <!-- <div class="mb-3">
-                  <label for="editManager<?=$row["CoachID"]?>Club" class="form-label">Club</label>
-                  <input type="text" class="form-control" id="editManager<?=$row["CoachID"]?>Club" aria-describedby="editManager<?=$row["CoachID"]?>Help" name="iClub" value="<?=$row['Club']?>">
-                  <div id="editManager<?=$row["CoachID"]?>Help" class="form-text">Enter the Managers's Club.</div>
-                </div> -->
                 <div class="mb-3">
                   <label for="editManager<?=$row["CoachID"]?>Club" class="form-label">Club</label>
                   <select class="form-select" id="editManager<?=$row["CoachID"]?>Club" aria-label="Select Club" name="iClub" value="<?=$row['Club']?>">

@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
     <td><?=$row["Club"]?></td>
     <td><?=$row["Position"]?></td>
     <td><?=$row["Nationality"]?></td>
-    <td>
+    <!-- <td>
       <form method="post" action="soccer_players-edit.php">
         <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
         <input type="hidden" name="iFirstName" value="<?=$row["FirstName"]?>" />
@@ -56,7 +56,74 @@ if ($result->num_rows > 0) {
         <input type="hidden" name="iNationality" value="<?=$row["Nationality"]?>" />
         <input type="submit" value="Edit" class="btn" />
       </form>
+    </td> -->
+    <td>
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editPlayer<?=$row["PlayerID"]?>">
+        Edit
+      </button>
+      <div class="modal fade" id="editPlayer<?=$row["PlayerID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editManager<?=$row["PlayerID"]?>Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editPlayer<?=$row["PlayerID"]?>Label">Edit Player</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="soccer_players-edit-save.php">
+                <div class="mb-3">
+                  <label for="editPlayer<?=$row["PlayerID"]?>FirstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="editPlayer<?=$row["PlayerID"]?>FirstName" aria-describedby="editPlayer<?=$row["PlayerID"]?>Help" name="iFirstName" value="<?=$row['FirstName']?>">
+                  <div id="editPlayer<?=$row["PlayerID"]?>Help" class="form-text">Enter the Player's First Name.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="editPlayer<?=$row["PlayerID"]?>LastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="editPlayer<?=$row["PlayerID"]?>LastName" aria-describedby="editPlayer<?=$row["PlayerID"]?>Help" name="iLastName" value="<?=$row['LastName']?>">
+                  <div id="editPlayer<?=$row["PlayerID"]?>Help" class="form-text">Enter the Player's Last Name.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="editPlayer<?=$row["PlayerID"]?>Club" class="form-label">Club</label>
+                  <select class="form-select" id="editPlayer<?=$row["PlayerID"]?>Club" aria-label="Select Club" name="iClub" value="<?=$row['Club']?>">
+                  <?php
+                      $clubSql = "select * from Teams order by Club";
+                      $clubResult = $conn->query($clubSql);
+                      while($clubRow = $clubResult->fetch_assoc()) {
+                        if ($clubRow['Club'] == $row['Club']) {
+                          $selText = " selected";
+                        } else {
+                          $selText = "";
+                        }
+                  ?>
+                    <option value="<?=$clubRow['Club']?>"<?=$selText?>><?=$clubRow['Club']?></option>
+                  <?php
+                      }
+                  ?>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="editPlayer<?=$row["PlayerID"]?>Position" class="form-label">Position</label>
+                  <select class="form-select" id="editPlayer<?=$row["PlayerID"]?>Position" aria-label="Select Position" name="iPosition" value="<?=$row['Position']?>">
+                    <option value="Keeper">Keeper</option>
+                    <option value="Defender">Defender</option>
+                    <option value="Midfielder">Midfielder</option>
+                    <option value="Striker">Striker</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="editPlayer<?=$row["PlayerID"]?>Nationality" class="form-label">Nationality</label>
+                  <input type="text" class="form-control" id="editPlayer<?=$row["PlayerID"]?>Nationality" aria-describedby="editPlayer<?=$row["PlayerID"]?>Help" name="iNationality" value="<?=$row['Nationality']?>">
+                  <div id="editPlayer<?=$row["PlayerID"]?>Help" class="form-text">Enter the Player's Nationality.</div>
+                </div>
+                <input type="hidden" name="iCoachID" value="<?=$row['CoachID']?>">
+                <input type="hidden" name="saveType" value="Edit">
+                <input type="submit" class="btn btn-primary" value="Submit">
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
     </td>
+    <td>
     <td>
       <form method="post" action="soccer_players-delete-save.php">
         <input type="hidden" name="iPlayerID" value="<?=$row["PlayerID"]?>" />
