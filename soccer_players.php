@@ -143,7 +143,7 @@ $conn->close();
         </div>
         <div class="modal-body">
           <form method="post" action="soccer_players-add-save.php">
-          <div class="mb-3">
+            <div class="mb-3">
               <label for="FirstName" class="form-label">First Name</label>
               <input type="text" class="form-control" id="FirstName" aria-describedby="firstNameHelp" name="iFirstName">
               <div id="firstNameHelp" class="form-text">Enter the first name of the player.</div>
@@ -196,4 +196,5 @@ $conn->close();
     </div>
   </div>
 </div>
+
 <?php include 'footer.php';?>
