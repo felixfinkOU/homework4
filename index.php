@@ -92,7 +92,7 @@ $conn->close();
     </table>
 
 <div>
-  <button type="button" style="color:red" class="btn" data-bs-toggle="modal" data-bs-target="#addClub">
+  <button type="button" style="color:white;background-color:white;" class="btn" data-bs-toggle="modal" data-bs-target="#addClub">
     Add new
   </button>
   <div class="modal fade" id="addClub" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addClubLabel" aria-hidden="true">
