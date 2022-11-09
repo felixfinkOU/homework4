@@ -115,7 +115,6 @@ $conn->close();
               <input type="text" class="form-control" id="Standings" aria-describedby="standingsHelp" name="iStandings">
               <div id="standingsHelp" class="form-text">Enter the Club's current standing in the league.</div>
             </div>
-            <input type="hidden" name="iClub" value="<?=$row['Club']?>">
             <input type="hidden" name="saveType" value="Add">
             <input type="submit" class="btn btn-primary" value="Submit">
           </form>
