@@ -90,6 +90,39 @@ $conn->close();
 ?>
   </tbody>
     </table>
-    <a href="club-add.php" class="btn btn-primary">Add New</a>
+
+<!-- <a href="club-add.php" class="btn btn-primary">Add New</a> -->
+<div>
+  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addClub">
+    Add new
+  </button>
+  <div class="modal fade" id="addClub" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addClubLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addClubLabel">Add Club</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="club-add-save.php">
+            <div class="mb-3">
+              <label for="Club" class="form-label">Club Name</label>
+              <input type="text" class="form-control" id="Club" aria-describedby="clubHelp" name="iClub">
+              <div id="clubHelp" class="form-text">Enter the Club's name.</div>
+            </div>
+            <div class="mb-3">
+              <label for="Standings" class="form-label">Club Standings</label>
+              <input type="text" class="form-control" id="Standings" aria-describedby="standingsHelp" name="iStandings">
+              <div id="standingsHelp" class="form-text">Enter the Club's current standing in the league.</div>
+            </div>
+            <input type="hidden" name="iClub" value="<?=$row['Club']?>">
+            <input type="hidden" name="saveType" value="Add">
+            <input type="submit" class="btn btn-primary" value="Submit">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php include 'footer.php';?>
