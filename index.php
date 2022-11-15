@@ -7,14 +7,6 @@
   <a class="btn btn-primary" type="button" href="soccer_players.php">Show Players</a>
 </div>
 <br></br>
-<div>
-  <strong>Filter players by position:</strong>
-  <form action="soccer_players.php" method="post">
-  Position: <input type="text" name="position"><br>
-  <input type="submit">
-  </form>
-</div>
-<br></br>
 <table class="table table-striped">
   <thead>
     <tr>
