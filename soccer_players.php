@@ -26,7 +26,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * from SoccerPlayer order by PlayerID";
+$sql = "SELECT * from SoccerPlayer";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -124,7 +124,7 @@ $conn->close();
 
 <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
 <!-- <a href="soccer_players-add.php" class="btn btn-primary">Add New</a> -->
-<!-- <div>
+<div>
   <button type="button" style="color:white;background-color:green;" class="btn" data-bs-toggle="modal" data-bs-target="#addPlayer">
     Add new
   </button>
@@ -189,6 +189,6 @@ $conn->close();
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <?php include 'footer.php';?>
