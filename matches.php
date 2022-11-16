@@ -133,12 +133,91 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
-$conn->close();
 ?>
   </tbody>
     </table>
 
+<!-- Go-back button -->
 <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
-<a href="matches-add.php" class="btn btn-primary">Add New</a>
+<!-- <a href="matches-add.php" class="btn btn-primary">Add New</a> -->
+
+<!-- Add button -->
+<div>
+  <button type="button" style="color:white;background-color:green;" class="btn" data-bs-toggle="modal" data-bs-target="#addMatch">
+    Add new
+  </button>
+  <div class="modal fade" id="addMatch" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addMatchLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addMatchLabel">Add Match</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="matches-add-save.php">
+            <div class="mb-3">
+              <label for="HomeTeam" class="form-label">HomeTeam</label>
+              <select class="form-select" aria-label="Select HomeTeam" id="HomeTeam" name="iHomeTeam">
+              <?php
+                  $homeTeamSql = "select * from Teams order by Club";
+                  $homeTeamResult = $conn->query($homeTeamSql);
+                  while($homeTeamRow = $homeTeamResult->fetch_assoc()) {
+                    if ($homeTeamRow['Club'] == $row['Club']) {
+                      $selText = " selected";
+                    } else {
+                      $selText = "";
+                    }
+              ?>
+                <option value="<?=$homeTeamRow['Club']?>"<?=$selText?>><?=$homeTeamRow['Club']?></option>
+              <?php
+                  }
+              ?>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="AwayTeam" class="form-label">AwayTeam</label>
+              <select class="form-select" aria-label="Select AwayTeam" id="AwayTeam" name="iAwayTeam">
+              <?php
+                  $awayTeamSql = "select * from Teams order by Club";
+                  $awayTeamResult = $conn->query($awayTeamSql);
+                  while($awayTeamRow = $awayTeamResult->fetch_assoc()) {
+                    if ($awayTeamRow['Club'] == $row['Club']) {
+                      $selText = " selected";
+                    } else {
+                      $selText = "";
+                    }
+              ?>
+                <option value="<?=$awayTeamRow['Club']?>"<?=$selText?>><?=$awayTeamRow['Club']?></option>
+              <?php
+                  }
+              ?>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="HomeTeamGoals" class="form-label">Home Team Goals</label>
+              <input type="text" class="form-control" id="HomeTeamGoals" aria-describedby="homeTeamGoalsHelp" name="iHomeTeamGoals">
+              <div id="homeTeamGoalsHelp" class="form-text">Enter the how many goals the home team scored.</div>
+            </div>
+            <div class="mb-3">
+              <label for="AwayTeamGoals" class="form-label">Away Team Goals</label>
+              <input type="text" class="form-control" id="AwayTeamGoals" aria-describedby="awayTeamGoalsHelp" name="iAwayTeamGoals">
+              <div id="awayTeamGoalsHelp" class="form-text">Enter the how many goals the away twam scored.</div>
+            </div>
+            <div class="mb-3">
+              <label for="Matchday" class="form-label">Matchday</label>
+              <input type="text" class="form-control" id="Matchday" aria-describedby="matchdayHelp" name="iMatchday">
+              <div id="matchdayHelp" class="form-text">Enter the matchday of the game. (The week the game took place)</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php
+$conn->close();
+?>
 
 <?php include 'footer.php';?>
