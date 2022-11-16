@@ -139,7 +139,6 @@ if ($result->num_rows > 0) {
 
 <!-- Go-back button -->
 <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
-<!-- <a href="matches-add.php" class="btn btn-primary">Add New</a> -->
 
 <!-- Add button -->
 <div>

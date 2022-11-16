@@ -82,6 +82,7 @@ if ($result->num_rows > 0) {
   </tbody>
     </table>
 
+<!-- Add button -->
 <div>
   <button type="button" style="color:white;background-color:green;" class="btn" data-bs-toggle="modal" data-bs-target="#addClub">
     Add new
