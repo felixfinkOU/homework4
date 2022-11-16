@@ -107,6 +107,11 @@ $conn->close();
 <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
 <!-- <a href="soccer_managers-add.php" class="btn btn-primary">Add New</a> -->
 
+<?php
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+?>
 <div>
   <button type="button" style="color:white;background-color:green;" class="btn" data-bs-toggle="modal" data-bs-target="#addManager">
     Add new
@@ -130,7 +135,25 @@ $conn->close();
               <input type="text" class="form-control" id="LastName" aria-describedby="lastNameHelp" name="iLastName">
               <div id="lastNameHelp" class="form-text">Enter the last name of the manager.</div>
             </div>
-            
+            <div class="mb-3">
+              <label for="editManager<?=$row["CoachID"]?>Club" class="form-label">Club</label>
+              <select class="form-select" id="editManager<?=$row["CoachID"]?>Club" aria-label="Select Club" name="iClub" value="<?=$row['Club']?>">
+              <?php
+                  $clubSql = "select * from Teams order by Club";
+                  $clubResult = $conn->query($clubSql);
+                  while($clubRow = $clubResult->fetch_assoc()) {
+                    if ($clubRow['Club'] == $row['Club']) {
+                      $selText = " selected";
+                    } else {
+                      $selText = "";
+                    }
+              ?>
+                <option value="<?=$clubRow['Club']?>"<?=$selText?>><?=$clubRow['Club']?></option>
+              <?php
+                  }
+              ?>
+              </select>
+            </div>
             <input type="hidden" name="saveType" value="Add">
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
@@ -139,6 +162,13 @@ $conn->close();
     </div>
   </div>
 </div>
+<?php
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
 
 
 <?php include 'footer.php';?>
