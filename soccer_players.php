@@ -82,7 +82,7 @@ if ($result->num_rows > 0) {
                   ?>
                   </select>
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                   <label for="editPlayer<?=$row["PlayerID"]?>Position" class="form-label">Position</label>
                   <select class="form-select" id="editPlayer<?=$row["PlayerID"]?>Position" aria-label="Select Position" name="iPosition" value="<?=$row['Position']?>">
                     <option value="Keeper">Keeper</option>
@@ -95,7 +95,7 @@ if ($result->num_rows > 0) {
                   <label for="editPlayer<?=$row["PlayerID"]?>Nationality" class="form-label">Nationality</label>
                   <input type="text" class="form-control" id="editPlayer<?=$row["PlayerID"]?>Nationality" aria-describedby="editPlayer<?=$row["PlayerID"]?>Help" name="iNationality" value="<?=$row['Nationality']?>">
                   <div id="editPlayer<?=$row["PlayerID"]?>Help" class="form-text">Enter the Player's Nationality.</div>
-                </div>
+                </div> -->
                 <input type="hidden" name="iPlayerID" value="<?=$row['PlayerID']?>">
                 <input type="hidden" name="saveType" value="Edit">
                 <input type="submit" class="btn btn-primary" value="Submit">
