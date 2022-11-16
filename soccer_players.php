@@ -123,8 +123,8 @@ $conn->close();
     </table>
 
 <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
-<!-- <a href="soccer_players-add.php" class="btn btn-primary">Add New</a> -->
-<div>
+<a href="soccer_players-add.php" class="btn btn-primary">Add New</a>
+<!-- <div>
   <button type="button" style="color:white;background-color:green;" class="btn" data-bs-toggle="modal" data-bs-target="#addPlayer">
     Add new
   </button>
@@ -189,6 +189,6 @@ $conn->close();
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <?php include 'footer.php';?>
