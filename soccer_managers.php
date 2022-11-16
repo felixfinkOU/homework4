@@ -106,11 +106,6 @@ if ($result->num_rows > 0) {
 <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
 <!-- <a href="soccer_managers-add.php" class="btn btn-primary">Add New</a> -->
 
-<?php
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-?>
 <div>
   <button type="button" style="color:white;background-color:green;" class="btn" data-bs-toggle="modal" data-bs-target="#addManager">
     Add new
@@ -161,11 +156,8 @@ if ($result->num_rows > 0) {
     </div>
   </div>
 </div>
+
 <?php
-  }
-} else {
-  echo "0 results";
-}
 $conn->close();
 ?>
 
