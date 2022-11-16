@@ -117,14 +117,13 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
-$conn->close();
 ?>
   </tbody>
     </table>
 
 <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
-<a href="soccer_players-add.php" class="btn btn-primary">Add New</a>
-<!-- <div>
+<!-- <a href="soccer_players-add.php" class="btn btn-primary">Add New</a> -->
+<div>
   <button type="button" style="color:white;background-color:green;" class="btn" data-bs-toggle="modal" data-bs-target="#addPlayer">
     Add new
   </button>
@@ -189,6 +188,10 @@ $conn->close();
       </div>
     </div>
   </div>
-</div> -->
+</div>
+
+<?php
+$conn->close();
+?>
 
 <?php include 'footer.php';?>

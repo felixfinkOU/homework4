@@ -103,9 +103,10 @@ if ($result->num_rows > 0) {
   </tbody>
     </table>
 
+<!-- Go-back button  -->
 <a class="btn btn-primary" type="button" href="index.php">Go Back</a>
-<!-- <a href="soccer_managers-add.php" class="btn btn-primary">Add New</a> -->
 
+<!-- Add button -->
 <div>
   <button type="button" style="color:white;background-color:green;" class="btn" data-bs-toggle="modal" data-bs-target="#addManager">
     Add new
