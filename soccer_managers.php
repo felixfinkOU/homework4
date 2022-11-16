@@ -119,7 +119,7 @@ $conn->close();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form method="post" action="soccer_managers-add-save.php">
+          <form method="post" action="">
             <div class="mb-3">
               <label for="FirstName" class="form-label">First Name</label>
               <input type="text" class="form-control" id="FirstName" aria-describedby="firstNameHelp" name="iFirstName">
